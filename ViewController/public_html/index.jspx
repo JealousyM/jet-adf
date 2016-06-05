@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="JetAdfApp" id="d1">
+            <link id="jetCss" rel="stylesheet" href="css/libs/oj/v1.1.2/alta/oj-alta-min.css" type="text/css"/>
+            <script data-main="js/main" src="js/libs/require/require.js" xmlns="http://www.w3.org/1999/xhtml"></script>
+            <af:resource  type="javascript" source="/js/adfJetScripts.js"/>
+            <af:form id="f1">
+                <af:panelHeader text="ADF" id="ph2">
+                    <f:facet name="context"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="toolbar"/>
+                    <f:facet name="legend"/>
+                    <f:facet name="info">
+                    </f:facet>
+              <af:inputText label="Input value:" id="adfInput" clientComponent="true"
+                            partialTriggers="sendBt"/>
+                    <af:button text="Send to Jet" id="sendBt" partialSubmit="true" clientComponent="true">
+                        <af:clientListener method="sendToJet" type="click"/>
+                    </af:button>
+                </af:panelHeader>
+                <af:panelHeader text="JET" id="ph1">
+                    <f:facet name="context"/>
+                    <f:facet name="toolbar"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                    <div id="container">
+                        <label for="input">Input value:</label>
+                         
+                        <input id="input" type="text"
+                               data-bind="ojComponent: {component: 'ojInputText', value: value}"/>
+                         
+                        <span class="oj-label">Current value is:</span>
+                         
+                        <span data-bind="text: value"></span>
+                    </div>
+                </af:panelHeader>
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>
